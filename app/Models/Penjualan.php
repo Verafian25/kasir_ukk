@@ -147,6 +147,7 @@ class Penjualan extends Model
             "SELECT id
             FROM penjualan WHERE kode_penjualan = '$nota'"
         )[0]->id ?? 0;
+
         $total = (float) DB::select(
             "SELECT sum(subtotal) AS total
             FROM detail_penjualan
@@ -194,4 +195,7 @@ class Penjualan extends Model
 
         return true;
     }
+
+
+
 }

@@ -42,13 +42,18 @@ class PenjualanController extends Controller
         $data_struk = $penjualan->readStruck();
         $nomor_nota = $penjualan->readNota();
         // dd($data_struk, $nomor_nota);
-        Penjualan::where('kode_penjualan', $nomor_nota)->first()->update(['bayar' => request('bayar')]);
+        if ($nomor_nota != 0) {
+            Penjualan::where('kode_penjualan', $nomor_nota)
+                ->first()
+                ->update(['bayar' => request('bayar')]);
+        } else {
+            return redirect()->route('penjualan.index')->with('error', 'belum ada transaksi');
+        }
 
         $bayar = request('bayar');
         $kembalian = request('kembalian');
 
         return view('penjualan.struk', compact('data_struk', 'nomor_nota', 'kembalian', 'bayar'));
-
     }
 
     public function store(Request $request, Penjualan $penjualan)
@@ -59,8 +64,7 @@ class PenjualanController extends Controller
 
         if ($store == false) {
             session()->flash('error', 'stok tidak mencukupi');
-            return redirect()
-                ->route('penjualan.index');
+            return redirect()->route('penjualan.index');
         } else {
             return redirect()->route('penjualan.index');
             // $totalPenjualan = $penjualan->calculateTotalPenjualan();

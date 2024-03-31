@@ -12,6 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
+
     <li class="nav-item active">
         <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -25,7 +26,12 @@
         <li class="nav-item">
             <a class="nav-link" href="/pelanggan">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Pelanggan</span></a>
+                <span>pelanggan</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/produk/show">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Produk</span></a>
         </li>
     @endif
 
@@ -37,20 +43,13 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>User</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/produk">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Produk</span></a>
+        </li>
     @endif
 
-
-
-    <!-- Nav Item - Tables -->
-
-    <li class="nav-item">
-        <a class="nav-link" href="/produk">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Produk</span></a>
-    </li>
-
-
-    <!-- Nav Item - Tables -->
 
     @if (session('user')->level == 'kasir')
         <li class="nav-item">
@@ -66,6 +65,11 @@
             <a class="nav-link" href="/laporanpenjualan">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Laporan penjualan</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/laporanproduk">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Laporan Produk</span></a>
         </li>
     @endif
 

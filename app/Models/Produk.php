@@ -21,7 +21,7 @@ class Produk extends Model
         $stok = $request->stok;
         $harga = $request->harga;
 
-        DB::insert("INSERT INTO produk (kode_produk,nama,stok,harga) VALUES ('$kode_produk','$nama',$stok,$harga)");
+        DB::insert("INSERT INTO produk (kode  _produk,nama,stok,harga) VALUES ('$kode_produk','$nama',$stok,$harga)");
     }
 
     public function editData($id){

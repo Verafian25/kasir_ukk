@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detail_penjualan', function (Blueprint $table) {
             $table->integer('id', true);
             $table->integer('penjualan_id');
-            $table->integer('kode_penjualan');
+            $table->string('kode_penjualan');
             $table->integer('produk_id');
             $table->integer('jumlah');
             $table->decimal('subtotal', 10);

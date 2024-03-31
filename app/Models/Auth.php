@@ -18,7 +18,7 @@ class Auth extends Model
         ->where('password', md5($request->password))
         ->first();
 
-    if ($data) {
+    if (isset($data)) {
         session(['user' => $data]);
         return true;
     } else {

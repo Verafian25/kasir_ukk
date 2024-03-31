@@ -20,5 +20,6 @@ class AuthMiddleware
         } else {
             return redirect()->route('auth.login');
         }
+        
     }
 }

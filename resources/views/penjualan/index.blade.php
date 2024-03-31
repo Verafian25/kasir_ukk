@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('content')
+
     @php
         if (session('isNew')) {
             $nomor_nota = '';
@@ -8,6 +9,7 @@
         }
         $total = '0';
     @endphp
+    
     <div class="row">
         <div class="col-lg-12 mb-4">
             <div class="card shadow mb-4">

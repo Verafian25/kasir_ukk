@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('kode_produk')->unique('penjualan_UN');
+            $table->string('kode_penjualan')->unique('penjualan_UN');
             $table->date('tanggal');
             $table->decimal('total_harga', 10);
             $table->integer('user_id')->nullable();

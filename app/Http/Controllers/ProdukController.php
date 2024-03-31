@@ -13,6 +13,11 @@ class ProdukController extends Controller
         return view('produk.index', compact('data'));
     }
 
+    public function show(Produk $produk){
+        $data = $produk->readData();
+        return view('produk.show', compact('data'));
+    }
+
     public function create(Request $request, Produk $produk){
         $produk->createData($request);
         return redirect()->route('produk.index');

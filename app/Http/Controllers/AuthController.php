@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class AuthController extends Controller
 {
@@ -25,19 +26,25 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function loginProcess(Request $request)
+    public function loginProcess(Request $request, Auth $auth)
     {
+        // $request->validate = [
+        //     'username' => 'required',
+        //     'password' => 'required'
+        // ]
         $request->validate($this->valdation);
         $data = $this->auth->loginProcess($request);
 
         if ($data) {
+            // session(['user' => $data]);
             return redirect()->route('dashboard.index');
         } else {
             return redirect()->route('auth.login');
         }
     }
 
-    public function logoutProcess(){
+    public function logoutProcess()
+    {
         session()->forget('user');
         return redirect()->route('auth.login');
     }

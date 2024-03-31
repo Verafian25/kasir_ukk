@@ -51,6 +51,7 @@ class Pengguna extends Model
             return false;
         }
     }
+    
     public function deleteData($id)
     {
         return DB::delete("DELETE FROM user WHERE id = ?", [$id]);
