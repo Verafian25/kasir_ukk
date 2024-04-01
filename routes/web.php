@@ -60,7 +60,7 @@ Route::middleware(['auth.custom'])->group(function () {
     Route::get('/cetak-laporan', function () {
         $laporanModel = new LaporanProduk();
         $laporan = $laporanModel->getData(request());
-        return view('laporan.cetak.produk', compact('laporan'));
+        return view('laporan.cetakproduk', compact('laporan'));
     });
 
     Route::get('/laporanpenjualan', [LaporanPenjualanController::class, 'index'])->name('laporan.penjualan');

@@ -18,10 +18,9 @@ class LaporanProduk extends Model
         $bulan = $request->bulan;
 
         $query = DB::table($this->table)
-            ->whereYear('tanggal', $tahun)
-            ->whereMonth('tanggal', $bulan)
-            ->get();
+            ->whereYear('created_at', $tahun)
+            ->whereMonth('created_at', $bulan);
 
-        return $query;
+        return $query->get();
     }
 }
